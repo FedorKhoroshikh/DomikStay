@@ -1,0 +1,14 @@
+{
+  "blocked": [
+    {
+      "start": "2026-03-10",
+      "end": "2026-03-15",
+      "reason": "booked"
+    },
+    {
+      "start": "2026-04-01",
+      "end": "2026-04-05",
+      "reason": "maintenance"
+    }
+  ]
+}
