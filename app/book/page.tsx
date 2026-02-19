@@ -11,6 +11,7 @@ interface Props {
 
 export default async function BookPage({ searchParams }: Props) {
   const { from, to } = await searchParams;
+  const today = new Date().toISOString().slice(0, 10);
 
   return (
     <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-16">
@@ -18,7 +19,7 @@ export default async function BookPage({ searchParams }: Props) {
       <p className="text-gray-600 mb-8">
         Заполните форму — мы свяжемся с вами для подтверждения.
       </p>
-      <BookingForm defaultFrom={from} defaultTo={to} />
+      <BookingForm defaultFrom={from} defaultTo={to} today={today} />
     </div>
   );
 }

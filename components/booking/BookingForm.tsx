@@ -1,14 +1,28 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { submitBooking, type BookingActionResult } from "@/lib/actions/booking";
 
 interface Props {
   defaultFrom?: string;
   defaultTo?: string;
+  today: string; // ISO "YYYY-MM-DD" from server
 }
 
-export default function BookingForm({ defaultFrom = "", defaultTo = "" }: Props) {
+export default function BookingForm({ defaultFrom = "", defaultTo = "", today }: Props) {
+  const [dateFrom, setDateFrom] = useState(defaultFrom);
+  const [dateTo, setDateTo] = useState(defaultTo);
+
+  function handleDateFromChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const val = e.target.value;
+    setDateFrom(val);
+    if (dateTo && val > dateTo) setDateTo(val);
+  }
+
+  function handleDateToChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setDateTo(e.target.value);
+  }
+
   const [state, action, pending] = useActionState<
     BookingActionResult | null,
     FormData
@@ -102,7 +116,9 @@ export default function BookingForm({ defaultFrom = "", defaultTo = "" }: Props)
             name="dateFrom"
             type="date"
             required
-            defaultValue={defaultFrom}
+            value={dateFrom}
+            min={today}
+            onChange={handleDateFromChange}
             className={inputClass}
           />
           {fieldError("dates.start") && (
@@ -120,7 +136,9 @@ export default function BookingForm({ defaultFrom = "", defaultTo = "" }: Props)
             name="dateTo"
             type="date"
             required
-            defaultValue={defaultTo}
+            value={dateTo}
+            min={dateFrom || today}
+            onChange={handleDateToChange}
             className={inputClass}
           />
           {fieldError("dates.end") && (
