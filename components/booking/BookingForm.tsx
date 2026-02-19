@@ -23,6 +23,16 @@ export default function BookingForm({ defaultFrom = "", defaultTo = "", today }:
     setDateTo(e.target.value);
   }
 
+  const [guests, setGuests] = useState("2");
+
+  function handleGuestsKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (["-", ".", ",", "+", "e", "E"].includes(e.key)) e.preventDefault();
+  }
+
+  function handleGuestsChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setGuests(e.target.value.replace(/\D/g, ""));
+  }
+
   const [state, action, pending] = useActionState<
     BookingActionResult | null,
     FormData
@@ -157,10 +167,13 @@ export default function BookingForm({ defaultFrom = "", defaultTo = "", today }:
             id="guests"
             name="guests"
             type="number"
+            inputMode="numeric"
             required
             min={1}
             max={20}
-            defaultValue={2}
+            value={guests}
+            onKeyDown={handleGuestsKeyDown}
+            onChange={handleGuestsChange}
             className={inputClass}
           />
           {fieldError("guests") && (
