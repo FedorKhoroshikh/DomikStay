@@ -99,6 +99,8 @@ export default function BookingForm({ defaultFrom = "", defaultTo = "", today }:
             required
             autoComplete="tel"
             placeholder="+7 900 000-00-00"
+            pattern="[\+\d][\d\s\-\(\)]{9,18}"
+            title="Введите номер телефона, например: +7 900 123-45-67"
             className={inputClass}
           />
           {fieldError("phone") && (

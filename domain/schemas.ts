@@ -18,7 +18,15 @@ export const BlockedPeriodSchema = z.object({
 export const BookingSchema = z.object({
   id: z.string().min(1),
   name: z.string().min(2).max(100),
-  phone: z.string().min(7).max(20),
+  phone: z.string()
+    .max(20, "Слишком длинный номер")
+    .refine(
+      (val) => {
+        const digits = val.replace(/\D/g, "");
+        return digits.length === 10 || digits.length === 11;
+      },
+      { message: "Введите корректный номер телефона (10 или 11 цифр)" }
+    ),
   dates: DateRangeSchema,
   guests: z.number().int().min(1).max(20),
   comment: z.string().max(500).optional(),
