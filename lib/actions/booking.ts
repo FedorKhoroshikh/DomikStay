@@ -6,6 +6,7 @@ import { jsonStorage } from "@/lib/storage/json-adapter";
 import { isRangeAvailable } from "@/domain/availability";
 import { BookingInputSchema } from "@/domain/schemas";
 import { checkRateLimit } from "@/lib/rate-limit";
+import { sendMessage, bookingMessage } from "@/lib/telegram";
 
 export type BookingActionResult =
   | { success: true }
@@ -67,12 +68,18 @@ export async function submitBooking(
   }
 
   // 5. Persist
-  await jsonStorage.addBooking({
+  const booking = {
     ...parsed.data,
     id: nanoid(),
     createdAt: new Date().toISOString(),
-    status: "pending",
-  });
+    status: "pending" as const,
+  };
+  await jsonStorage.addBooking(booking);
+
+  // 6. Notify via Telegram (non-blocking — booking succeeds even if this fails)
+  sendMessage(bookingMessage(booking)).catch((err) =>
+    console.error("[telegram] failed to notify:", err)
+  );
 
   return { success: true };
 }
