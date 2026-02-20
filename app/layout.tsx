@@ -7,12 +7,28 @@ import Footer from "@/components/layout/Footer";
 const inter = Inter({ subsets: ["latin", "cyrillic"] });
 
 export const metadata: Metadata = {
-  title: "DomikStay — Аренда домика",
-  description: "Уютный домик для отдыха. Бронируйте онлайн!",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  ),
+  title: {
+    template: "%s | DomikStay",
+    default: "DomikStay — Аренда уютного домика на природе",
+  },
+  description:
+    "Уютный домик для отдыха на природе. Тишина, комфорт и чистый воздух — всё для незабываемых выходных. Бронируйте онлайн!",
+  keywords: ["аренда домика", "отдых на природе", "домик на выходные", "загородный отдых"],
   openGraph: {
-    title: "DomikStay — Аренда домика",
-    description: "Уютный домик для отдыха. Бронируйте онлайн!",
+    title: "DomikStay — Аренда уютного домика на природе",
+    description:
+      "Уютный домик для отдыха на природе. Тишина, комфорт и чистый воздух — всё для незабываемых выходных.",
     type: "website",
+    locale: "ru_RU",
+    siteName: "DomikStay",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DomikStay — Аренда уютного домика на природе",
+    description: "Уютный домик для отдыха на природе. Бронируйте онлайн!",
   },
 };
 
