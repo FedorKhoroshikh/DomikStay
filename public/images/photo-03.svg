@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#fff7ed"/>
+  <rect x="60" y="300" width="680" height="200" fill="#fed7aa" rx="4"/>
+  <rect x="60" y="140" width="680" height="160" fill="#fdba74" rx="4"/>
+  <rect x="100" y="300" width="120" height="200" fill="#fb923c" rx="4"/>
+  <rect x="260" y="300" width="120" height="200" fill="#fb923c" rx="4"/>
+  <rect x="420" y="300" width="120" height="200" fill="#fb923c" rx="4"/>
+  <rect x="580" y="300" width="120" height="200" fill="#fb923c" rx="4"/>
+  <circle cx="400" cy="200" r="40" fill="#f97316"/>
+  <text x="400" y="560" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#9a3412">Кухня</text>
+</svg>

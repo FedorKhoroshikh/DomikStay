@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#fef3c7"/>
+  <rect x="80" y="120" width="640" height="360" fill="#fde68a" rx="4"/>
+  <rect x="120" y="200" width="180" height="240" fill="#fbbf24" rx="4"/>
+  <rect x="340" y="280" width="160" height="60" fill="#f59e0b" rx="4"/>
+  <rect x="530" y="180" width="140" height="100" fill="#fbbf24" rx="4"/>
+  <rect x="340" y="160" width="160" height="100" fill="#fde68a" rx="4"/>
+  <rect x="120" y="460" width="560" height="20" fill="#f59e0b" rx="2"/>
+  <text x="400" y="560" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#92400e">Гостиная</text>
+</svg>

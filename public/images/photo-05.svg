@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#ecfdf5"/>
+  <rect x="0" y="360" width="800" height="240" fill="#bbf7d0"/>
+  <rect x="60" y="200" width="680" height="200" fill="#86efac" rx="8"/>
+  <rect x="60" y="160" width="680" height="60" fill="#4ade80" rx="4"/>
+  <rect x="100" y="260" width="80" height="80" fill="#bbf7d0" rx="4"/>
+  <rect x="220" y="260" width="80" height="80" fill="#bbf7d0" rx="4"/>
+  <rect x="340" y="260" width="240" height="100" fill="#86efac" rx="4"/>
+  <circle cx="640" cy="300" r="30" fill="#bbf7d0"/>
+  <text x="400" y="560" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#14532d">Терраса</text>
+</svg>

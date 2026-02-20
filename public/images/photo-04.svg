@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <rect width="800" height="600" fill="#ede9fe"/>
+  <rect x="100" y="300" width="600" height="180" fill="#c4b5fd" rx="8"/>
+  <rect x="100" y="260" width="600" height="60" fill="#8b5cf6" rx="4"/>
+  <rect x="140" y="300" width="160" height="180" fill="#a78bfa" rx="4"/>
+  <rect x="500" y="300" width="160" height="180" fill="#a78bfa" rx="4"/>
+  <rect x="320" y="200" width="160" height="280" fill="#ddd6fe" rx="4"/>
+  <rect x="60" y="460" width="680" height="20" fill="#c4b5fd" rx="2"/>
+  <text x="400" y="560" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#4c1d95">Спальня</text>
+</svg>
