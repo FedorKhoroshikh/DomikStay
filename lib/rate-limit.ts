@@ -8,8 +8,8 @@ const store = new Map<string, Entry>();
  */
 export function checkRateLimit(
   key: string,
-  limit = 3,
-  windowMs = 60_000
+  limit = 5,
+  windowMs = 5 * 60_000
 ): boolean {
   const now = Date.now();
   const entry = store.get(key);
