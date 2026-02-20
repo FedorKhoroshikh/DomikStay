@@ -28,6 +28,10 @@ export default function Calendar({ blockedDates, today }: CalendarProps) {
   const blocked = useMemo(() => new Set(blockedDates), [blockedDates]);
   const second = addMonths(viewYear, viewMonth, 1);
 
+  const todayYear = parseInt(today.slice(0, 4));
+  const todayMonth = parseInt(today.slice(5, 7)) - 1;
+  const isAtMinMonth = viewYear === todayYear && viewMonth === todayMonth;
+
   function handleDayClick(iso: string) {
     if (!rangeStart || (rangeStart && rangeEnd)) {
       setRangeStart(iso);
@@ -76,7 +80,8 @@ export default function Calendar({ blockedDates, today }: CalendarProps) {
         <button
           type="button"
           onClick={prev}
-          className="p-2 rounded-full hover:bg-gray-100 text-gray-600 transition-colors"
+          disabled={isAtMinMonth}
+          className="p-2 rounded-full hover:bg-gray-100 text-gray-600 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
           aria-label="Предыдущий месяц"
         >
           ‹

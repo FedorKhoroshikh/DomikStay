@@ -4,6 +4,16 @@ interface Props {
   review: Review;
 }
 
+const MONTHS_RU = [
+  "января", "февраля", "марта", "апреля", "мая", "июня",
+  "июля", "августа", "сентября", "октября", "ноября", "декабря",
+];
+
+function formatDate(iso: string): string {
+  const [year, month, day] = iso.split("-").map(Number);
+  return `${day} ${MONTHS_RU[month - 1]} ${year}`;
+}
+
 function Stars({ rating }: { rating: number }) {
   return (
     <span aria-label={`${rating} из 5`}>
@@ -25,7 +35,7 @@ export default function ReviewCard({ review }: Props) {
           dateTime={review.date}
           className="text-xs text-gray-400 whitespace-nowrap pt-0.5"
         >
-          {review.date}
+          {formatDate(review.date)}
         </time>
       </div>
       <p className="text-gray-700 text-sm leading-relaxed">{review.text}</p>
