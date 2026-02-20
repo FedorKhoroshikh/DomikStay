@@ -2,7 +2,7 @@
 
 import { headers } from "next/headers";
 import { nanoid } from "nanoid";
-import { jsonStorage } from "@/lib/storage/json-adapter";
+import { kvStorage as jsonStorage } from "@/lib/storage/kv-adapter";
 import { isRangeAvailable } from "@/domain/availability";
 import { BookingInputSchema } from "@/domain/schemas";
 import { checkRateLimit } from "@/lib/rate-limit";

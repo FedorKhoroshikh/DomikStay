@@ -1,6 +1,6 @@
 "use server";
 
-import { jsonStorage } from "@/lib/storage/json-adapter";
+import { kvStorage as jsonStorage } from "@/lib/storage/kv-adapter";
 import { getBlockedDates } from "@/domain/availability";
 
 export async function fetchBlockedDates(): Promise<string[]> {

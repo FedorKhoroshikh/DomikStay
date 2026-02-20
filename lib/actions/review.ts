@@ -2,7 +2,7 @@
 
 import { headers } from "next/headers";
 import { nanoid } from "nanoid";
-import { jsonStorage } from "@/lib/storage/json-adapter";
+import { kvStorage as jsonStorage } from "@/lib/storage/kv-adapter";
 import { ReviewInputSchema } from "@/domain/schemas";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { sendMessage, reviewMessage } from "@/lib/telegram";
